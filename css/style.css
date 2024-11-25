@@ -21,9 +21,9 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 630px;
     margin: 40px auto;
-    padding: 48px 32px;
+    padding: 40px 32px;
     background-color: var(--background);
     box-shadow: 0 0 40px rgba(0,0,0,0.03);
     border-radius: 16px;
@@ -31,7 +31,7 @@ body {
 
 /* 헤더 스타일 수정 */
 .header {
-    padding: 48px 0 40px;
+    padding: 30px 0 40px;
     border-bottom: 3px double var(--text-primary);
     margin-bottom: 40px;
     position: relative;
@@ -46,30 +46,30 @@ body {
 }
 
 .logo {
-    font-family: "Playfair Display", "Times New Roman", serif;
-    font-size: 62px;
+    font-family: "UnifrakturCook", cursive;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 48px;
     font-weight: 900;
     line-height: 1;
     color: var(--text-primary);
     letter-spacing: -0.5px;
-    text-transform: uppercase;
     position: relative;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .logo::before {
     content: '세상 모든 이슈를 한곳에서, 한번에!';
     position: absolute;
-    top: -28px;
+    top: -24px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
-    font-style: italic;
     color: var(--text-secondary);
     letter-spacing: 1.5px;
     text-transform: none;
-    border: 1px solid var(--border);
+    /* border: 1px solid var(--border); */
     padding: 3px 12px;
     background: var(--background);
     white-space: nowrap;
@@ -259,8 +259,30 @@ body {
 /* 카드 컨테이너 수정 */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+/* 카드 스타일 조정 */
+.card {
+    width: 100%;
+}
+
+.card-thumbnail {
+    height: 200px;
+}
+
+/* 반응형 대응 수정 */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card-thumbnail {
+        height: 180px;
+    }
 }
 
 /* 카드 스타일 개선 */
@@ -281,7 +303,7 @@ body {
 
 .card-thumbnail {
     width: 100%;
-    height: 220px;
+    height: 240px;
     position: relative;
     overflow: hidden;
 }
@@ -382,7 +404,7 @@ body {
 }
 
 .stat-item.likes i {
-    color: #FF6B6B;  /* 빨간색 (좋아요) */
+    color: #FF6B6B;  /* 간색 (좋아요) */
 }
 
 /* 통계 아이템 기본 스타일 수정 */
@@ -402,7 +424,7 @@ body {
 
 /* 카드 콘텐츠 영역 */
 .card-content {
-    padding: 24px;
+    padding: 24px 20px;
     background: var(--background);
     display: flex;
     flex-direction: column;
@@ -414,7 +436,7 @@ body {
 }
 
 .card-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 12px;
@@ -479,7 +501,7 @@ body {
     .container {
         max-width: 100%;
         margin: 20px auto;
-        padding: 32px 20px;
+        padding: 32px 24px;
     }
     
     .card-container {
@@ -488,11 +510,11 @@ body {
     }
     
     .card-thumbnail {
-        height: 220px;
+        height: 200px;
     }
     
     .card-content {
-        padding: 20px;
+        padding: 20px 16px;
     }
 }
 
@@ -536,14 +558,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin: 20px 0;
+    margin: 16px 0;
 }
 
 .battle-option {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 16px;
+    padding: 14px;
     border-radius: 12px;
     background-color: #F8F9FA;
     border: 1px solid var(--border);
@@ -590,7 +612,7 @@ body {
 /* 푸터 스타일 개선 */
 .footer {
     text-align: center;
-    padding-top: 64px;
+    padding-top: 48px;
     position: relative;
 }
 
@@ -644,12 +666,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 16px 32px;
+    padding: 14px 24px;
     background-color: var(--primary-light);
     color: var(--primary);
     border: 1px solid rgba(90, 56, 212, 0.15);
     border-radius: 12px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -721,4 +743,45 @@ body {
 
 .unsubscribe-link:hover {
     color: var(--text-primary);
+}
+
+/* 이슈배틀 섹션 스타일 수정 */
+.content-section:nth-child(3) .card-container {
+    grid-template-columns: repeat(2, 1fr); /* 2열 그리드로 변경 */
+    grid-template-rows: repeat(2, 1fr); /* 2행 그리드로 변경 */
+    gap: 24px; /* 카드 간격 조정 */
+}
+
+/* 이슈배틀 카드 스타일 수정 */
+.content-section:nth-child(3) .card {
+    max-width: 100%;
+    height: 100%; /* 높이 100%로 설정하여 그리드 셀에 맞춤 */
+}
+
+/* 이슈배틀 썸네일 높이 조정 */
+.content-section:nth-child(3) .card-thumbnail {
+    height: 240px; /* 썸네일 높이 조정 */
+}
+
+/* 배틀 옵션 스타일 개선 */
+.battle-options {
+    margin: 24px 0;
+    gap: 12px;
+}
+
+.battle-option {
+    padding: 16px;
+    font-size: 15px;
+}
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+    .content-section:nth-child(3) .card-thumbnail {
+        height: 220px;
+    }
+    
+    .battle-option {
+        padding: 14px;
+        font-size: 14px;
+    }
 } 
